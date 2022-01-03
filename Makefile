@@ -1,23 +1,49 @@
 NAME = push_swap
 
+INCLUDE = so_long.h
+LIBFT_BIB = ./libft/libft.a
+
 CC = gcc
+
+EXCUTE = main.c
+
+EXCUTE = push_swap.c
 
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_BIB = ./libft/libft.a
-
 INCLUDE = push_swap.h
 
-RM = rm -rf
+SRC = 	swap_a.c\
+	    swap_b.c\
+		other_function1.c\
+		other_function2.c\
+		otherfunction3.c\
+		other_function4.c\
+		other_function5.c\
+		ft_strj.c\
+		swap_a_b.c
 
-all :
+
+OBJECTS = $(SRC:.c=.o)
+
+
+all :$(NAME)
+
+$(NAME) : $(OBJECTS) $(INCLUDE)
 	@make clean -C libft
 	@make -C libft
-	@$(CC) $(CFLAGS) push_swap.c $(LIBFT_BIB) -o aaa
+	@$(CC) $(CFLAGS) $(EXCUTE) $(OBJECTS) $(LIBFT_BIB) -o $@
 
-clean:
+%.o : %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean :
 	@make clean -C libft
+	@rm -rf $(OBJECTS)
 
-fclean:
+
+fclean: clean
 	@make fclean -C libft
-	@$(RM) ./aaa
+	@rm -rf $(NAME) 
+
+re : fclean all

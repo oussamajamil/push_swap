@@ -6,102 +6,104 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 10:16:34 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/28 17:52:18 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/03 18:57:37 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_controller_arg(int argc, char *argv[])
+void	ft_complete_ft_markup(int *cmp, int *cp, t_table *data)
 {
-	int i;
-	int j;
-
-	i = 0;
-	if (argc > 1)
+	if (*cmp < data->key)
 	{
-		while (++i < argc)
-		{
-			j = -1;
-			while (argv[i][++j])
-			{
-				if (ft_isdigit(argv[i][j]) == 0)
-					return (-1);
-			}
-		}
-		return (0);
-	}
-	else
-		return (-1);
-}
-t_table *InsertData(int x)
-{
-	t_table *data;
-
-	data = malloc(sizeof(t_table));
-	if (!data)
-		return (NULL);
-	data->key = x;
-	data->next = NULL;
-	data->prev = NULL;
-	return (data);
-}
-
-t_table *ft_add_back(t_data *table, int x)
-{
-	t_table *data;
-	t_table *last;
-	data = InsertData(x);
-	if (!data)
-		return (NULL);
-	if (table->structs)
-	{
-		last = table->last;
-		last->next = data;
-		data->prev = last;
-	}
-	else
-	{
-		table->size = 0;
-		table->structs = data;
-	}
-	table->last = data;
-	table->size++;
-	return (table->structs);
-}
-
-void ft_print(t_data *data)
-{
-	t_table *tmp;
-
-	tmp = data->structs;
-	while (tmp)
-	{
-		printf("%d\n", tmp->key);
-		tmp = tmp->next;
+		*cp = *cp + 1;
+		*cmp = data->key;
 	}
 }
 
-void ft_print_reverse(t_data *data)
+int	ft_markup(t_table *data, int x)
 {
-	while (lst)
+	int	cp;
+	int	comp;
+
+	cp = 1;
+	comp = x;
+	while (data->next)
 	{
-		printf("%d\n", lst->key);
-		lst = lst->prev;
-		write(1, "here\n", 5);
+		data = data->next;
+		ft_complete_ft_markup(&comp, &cp, data);
+	}
+	while (data->prev)
+		data = data->prev;
+	while (data->next && data->key != x)
+	{
+		ft_complete_ft_markup(&comp, &cp, data);
+		data = data->next;
+	}
+	return (cp);
+}
+
+void	ft_marke(t_data *data, int x)
+{
+	t_table	*markup_head;
+	int		a;
+	int		d;
+
+	markup_head = ft_select_markup_head(data->structs, x);
+	d = markup_head->key;
+	a = d;
+	markup_head->pos = 1;
+	printf("-------markup head :%d--------\n",d);
+	while (markup_head->next)
+	{
+		markup_head = markup_head->next;
+		ft_short_function(&d, markup_head);
+	}
+	while (markup_head->prev)
+		markup_head = markup_head->prev;
+	while (markup_head->next)
+	{
+		if (markup_head->key == a)
+			break ;
+		ft_short_function(&d, markup_head);
+		markup_head = markup_head->next;
 	}
 }
 
-int main()
+void	ft_check(t_data *a)
 {
-	t_data data;
-	data.structs = NULL;
-	ft_add_back(&data, 1);
-	ft_add_back(&data, 2);
-	ft_add_back(&data, 5);
-	ft_add_back(&data, 7);
-	ft_add_back(&data, 10);
-	ft_print(&data);
-	ft_print_reverse(&data);
+	int	cp;
+
+	cp = ft_markup_head(a);
+	ft_marke(a, cp);
+}
+
+int	main(int ac, char *av[])
+{
+	t_data	a;
+	t_data	b;
+	char	*str;
+	char	**s;
+	int		*arr;
+
+	a.structs = NULL;
+	b.structs = NULL;
+	if (ac >= 2)
+	{
+		str = ft_strj(ac, av, " ");
+		if (!str)
+			exit(0);
+		s = ft_split(str, ' ');
+		free(str);
+		ft_check_nember(s);
+		ft_check_double(s);
+		arr = malloc(sizeof(int) * ac - 1);
+		ft_remplire_list(&a, s, arr);
+		ft_sort_int_tab(arr, ac - 1);
+		ft_remplir_index(&a, arr, ac - 1);
+		free(arr);
+		ft_check(&a);
+		ft_print(&a);
+	}
 }
 // write(1,"here\n", 5);

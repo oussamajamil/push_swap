@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   swap_a_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 15:05:06 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 11:26:36 by ojamil           ###   ########.fr       */
+/*   Created: 2022/01/03 10:41:47 by ojamil            #+#    #+#             */
+/*   Updated: 2022/01/03 11:13:22 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-long long	ft_atoi(const char *str)
+void	ss(t_data *a, t_data *b)
 {
-	int			i;
-	int			cp;
-	long long	r;
+	sa (a);
+	sa (b);
+}
 
-	i = 0;
-	cp = 1;
-	r = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			cp = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		r = r * 10 + str[i] - '0';
-		i++;
-	}
-	return (r * cp);
+void	rr(t_data *a, t_data *b)
+{
+	ra (a);
+	rb (b);
 }
