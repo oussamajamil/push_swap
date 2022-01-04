@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 17:08:58 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 11:21:19 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/04 14:23:52 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	rb(t_data *a)
 	if (dt == NULL)
 		return ;
 	x = dt->key;
+	ft_add_back(a, x,dt->index,dt->pos);
 	ft_delete_first_node(a);
-	ft_add_back(a, x);
 }
 
 void	sb(t_data *a)
@@ -60,7 +60,7 @@ void	ft_push_b(t_data *a, t_data *b)
 	if (a->structs)
 	{
 		x = a->structs->key;
-		ft_add_head(b, x);
+		ft_add_head(b, x,a->structs->index,a->structs->pos);
 		ft_delete_first_node(a);
 	}
 	else

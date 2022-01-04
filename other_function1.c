@@ -6,17 +6,17 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:51:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 18:58:55 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/04 14:21:35 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_table	*ft_add_head(t_data *table, int x)
+t_table	*ft_add_head(t_data *table, int x,int index,int pos)
 {
 	t_table	*dt;
 
-	dt = insertdata (x);
+	dt = insertdata (x,index,pos);
 	if (!dt)
 		return (NULL);
 	if (table->structs)
@@ -34,12 +34,12 @@ t_table	*ft_add_head(t_data *table, int x)
 	return (table->structs);
 }
 
-t_table	*ft_add_back(t_data *table, int x)
+t_table	*ft_add_back(t_data *table, int x, int index,int pos)
 {
 	t_table	*data;
 	t_table	*last;
 
-	data = insertdata(x);
+	data = insertdata(x,index,pos);
 	if (!data)
 		return (NULL);
 	if (table->structs)

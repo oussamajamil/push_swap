@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:35:09 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 18:34:51 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/04 14:22:35 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_remplire_list(t_data *a, char **str, int *arr)
 			ft_putstr_fd("error", 1);
 			exit(0);
 		}
-		ft_add_back(a, n);
+		ft_add_back(a, n,-1,-1);
 		arr[j] = n;
 		j++;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 18:58:39 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/04 14:24:25 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_reverse(t_data *data)
 	lst = data->last;
 	while (lst)
 	{
-		ft_putnbr_fd(lst->key,1);
-		ft_putchar_fd('\n',1);
+		ft_putnbr_fd(lst->key, 1);
+		ft_putchar_fd('\n', 1);
 		lst = lst->prev;
 	}
 }
@@ -40,7 +40,7 @@ void	ft_delete_back_node(t_data *data)
 	free(lst);
 }
 
-t_table	*insertdata(int x)
+t_table	*insertdata(int x, int index, int pos)
 {
 	t_table	*data;
 
@@ -50,7 +50,7 @@ t_table	*insertdata(int x)
 	data->key = x;
 	data->next = NULL;
 	data->prev = NULL;
-	data->index = -1;
-	data->pos = -1;
+	data->index = index;
+	data->pos = pos;
 	return (data);
 }

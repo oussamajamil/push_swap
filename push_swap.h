@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 14:05:53 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/04 14:18:07 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	sb(t_data *a);
 void	ra(t_data *a);
 void	rb(t_data *a);
 void	rra(t_data *a);
-t_table	*insertdata(int x);
-t_table	*ft_add_head(t_data *table, int x);
-t_table	*ft_add_back(t_data *table, int x);
+t_table	*insertdata(int x,int index,int pos);
+t_table	*ft_add_head(t_data *table, int x, int index, int pos);
+t_table	*ft_add_back(t_data *table, int x, int index, int pos);
 void	ss(t_data *a, t_data *b);
 void	rr(t_data *a, t_data *b);
 void	ft_print(t_data *data);
