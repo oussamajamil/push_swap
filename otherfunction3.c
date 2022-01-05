@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:45:53 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 12:27:49 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 10:53:53 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,24 @@ void	ft_check_nember(char **str)
 		if (ft_check_str(str[i]) == -1)
 		{
 			ft_putstr_fd("error de paramette", 1);
+			ft_free_str(str);
 			exit(0);
 		}
 		i++;
 	}
+}
+
+void	ft_free_str(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
 void	ft_check_double(char **s)
@@ -84,6 +98,7 @@ void	ft_check_double(char **s)
 			if (ft_strcmp(s[i], s[j]) == 0)
 			{
 				ft_putstr_fd("error doubles", 1);
+				ft_free_str(s);
 				exit(0);
 			}
 			j++;

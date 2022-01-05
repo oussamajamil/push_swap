@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:05:26 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 18:33:24 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 10:19:37 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,16 @@ t_table	*ft_select_markup_head(t_table *data, int y)
 	while (data->prev)
 		data = data->prev;
 	return (data);
+}
+
+int ft_nombre_mots(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/04 14:24:25 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/04 19:06:12 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,49 @@ t_table	*insertdata(int x, int index, int pos)
 	data->index = index;
 	data->pos = pos;
 	return (data);
+}
+
+void	ft_check(t_data *a)
+{
+	int	cp;
+
+	cp = ft_sherch_maruphead_and_marque(a);
+	sa(a);
+	if (cp < ft_markup_head(a))
+	{
+		ft_putstr_fd("sa\n", 1);
+		ft_sherch_maruphead_and_marque(a);
+	}
+	else
+		sa(a);
+}
+
+void	ft_sort_a(t_data *a, t_data *b)
+{
+	int		i;
+	int		cp;
+	t_table	*tmp;
+
+	ft_check(a);
+	cp = ft_nombre_push_b(a);
+	tmp = a->structs;
+	i = 0;
+	while (i < cp && ft_nombre_push_b(a) > 0)
+	{
+		if (a->structs->pos == 0)
+		{
+			ft_push_b(a, b);
+			i++;
+		}
+		else
+		{
+			rra(a);
+			ft_putstr_fd("rra\n", 1);
+			ft_check(a);
+			i = 0;
+			cp = ft_nombre_push_b(a);
+			if (cp < ft_nombre_push_b(a))
+				i = 0;
+		}
+	}
 }

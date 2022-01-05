@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 10:16:34 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/04 15:07:35 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 11:42:12 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,33 +70,19 @@ void	ft_marke(t_data *data, int x)
 	}
 }
 
-int ft_sherch_maruphead_and_marque(t_data *a)
+int	ft_sherch_maruphead_and_marque(t_data *a)
 {
-	int cp;
+	int	cp;
 
 	cp = ft_markup_head(a);
 	ft_marke(a, cp);
-	return(cp);
+	return (cp);
 }
 
-void	ft_check(t_data *a)
+int	ft_nombre_push_b(t_data *b)
 {
-	int cp;
-	cp = ft_sherch_maruphead_and_marque(a);
-	sa(a);
-	if (cp < ft_markup_head(a))
-	{
-		ft_putstr_fd("sa\n",1);
-		ft_sherch_maruphead_and_marque(a);
-	}
-	else
-		sa(a);
-}
-
-int ft_nombre_push_b(t_data *b)
-{
-	int cp;
-	t_table *a;
+	int		cp;
+	t_table	*a;
 
 	cp = 0;
 	a = b->structs;
@@ -110,66 +96,33 @@ int ft_nombre_push_b(t_data *b)
 			cp++;
 	while (a->prev)
 		a = a->prev;
-	return(cp);
-}
-
-void ft_sort_a(t_data *a, t_data *b)
-{
-	int i;
-	int cp;
-	t_table *tmp;
-
-	ft_check(a);
-	cp = ft_nombre_push_b(a);
-	tmp = a->structs;
-	i = 0;
-	while (i < cp && ft_nombre_push_b(a)> 0)
-	{
-		if (a->structs->pos == 0)
-		{
-			ft_push_b(a,b);
-			i++;
-		}
-		else
-		{
-			rra(a);
-			ft_putstr_fd("rra\n",1);
-			ft_check(a);
-			i = 0;
-			cp =ft_nombre_push_b(a);
-			if (cp < ft_nombre_push_b(a))
-			{
-				i = 0;
-			}
-		}
-	}
-	
+	return (cp);
 }
 
 int	main(int ac, char *av[])
 {
 	t_data	a;
 	t_data	b;
-	char	*str;
-	char	**s;
-	int		*arr;
+	t_string txt;
 
 	a.structs = NULL;
 	b.structs = NULL;
 	if (ac >= 2)
 	{
-		str = ft_strj(ac, av, " ");
-		if (!str)
+		txt.str = ft_strj(ac, av, " ");
+		if (!txt.str)
 			exit(0);
-		s = ft_split(str, ' ');
-		free(str);
-		ft_check_nember(s);
-		ft_check_double(s);
-		arr = malloc(sizeof(int) * ac - 1);
-		ft_remplire_list(&a, s, arr);
-		ft_sort_int_tab(arr, ac - 1);
-		ft_remplir_index(&a, arr, ac - 1);
-		free(arr);
+		txt.s = ft_split(txt.str, ' ');
+		free(txt.str);
+		ft_check_nember(txt.s);
+		ft_check_double(txt.s);
+		txt.long_str = ft_nombre_mots(txt.s);
+		txt.arr = malloc(sizeof(int) * txt.long_str - 1);
+		ft_remplire_list(&a, txt.s, txt.arr);
+		ft_free_str(txt.s);
+		ft_sort_int_tab(txt.arr, txt.long_str - 1);
+		ft_remplir_index(&a, txt.arr, txt.long_str - 1);
+		free(txt.arr);
 		ft_check(&a);
 		ft_sort_a(&a,&b);
 		ft_print(&a);
