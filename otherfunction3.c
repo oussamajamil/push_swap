@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:45:53 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 10:53:53 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 18:56:11 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_check_str(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (str[i] == '\0')
+		return (-1);
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]) == 0)

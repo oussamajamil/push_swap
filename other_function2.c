@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/04 19:06:12 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 15:47:01 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_table	*insertdata(int x, int index, int pos)
 	data->prev = NULL;
 	data->index = index;
 	data->pos = pos;
+	data->index_in_your_table = -1;
 	return (data);
 }
 

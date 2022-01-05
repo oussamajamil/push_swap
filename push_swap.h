@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 10:35:06 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 15:41:12 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_table
 	struct s_table	*prev;
 	int				index;
 	int				pos;
+	int				index_in_your_table;
 }	t_table;
 
 typedef struct s_data

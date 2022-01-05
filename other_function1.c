@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:51:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/04 18:29:57 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 16:17:13 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_print(t_data *data)
 		return ;
 	while (tmp)
 	{
-		printf("%d \t %d\t  %d\n", tmp->key, tmp->index, tmp->pos);
+		printf("%d \t %d\t  %d\t  index in tab b :%d\n", tmp->key, tmp->index, tmp->pos,tmp->index_in_your_table);
 		tmp = tmp->next;
 	}
 	ft_putstr_fd("---------------------------------\n", 1);

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 10:16:34 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 11:42:12 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/05 18:53:38 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,63 @@ int	ft_nombre_push_b(t_data *b)
 	return (cp);
 }
 
+void 	ft_chechk_sort_b(t_data *a,t_data *b,int *arr)
+{
+	t_table	*dta;
+	t_table	*dtb;
+	int	cp;
+	int i;
+
+	dta = a->structs;
+	dtb = b->structs;
+	cp = 0; 
+	i = 0;
+	while (dtb)
+	{
+		if (dtb->index_in_your_table < b->size / 2)
+			cp = dtb->index_in_your_table;
+		else
+			cp = dtb->index_in_your_table - b->size ;
+		arr[i] = cp;
+		i++;
+		if (!dtb->next)
+			break;
+		dtb = dtb ->next;
+	}
+	while (dtb->prev)
+		dtb = dtb->prev;	
+}
+
+void	ft_index_tab(t_data *b)
+{
+	t_table *data;
+	int		cp;
+
+	data = b->structs;
+	if (!data)
+		return ;
+	cp = 0;
+	while (data->next)
+	{
+		data->index_in_your_table = cp;
+		cp++;
+		data = data->next;
+	}
+	data->index_in_your_table = cp;
+	while (data->prev)
+		data = data->prev;
+}
+
 int	main(int ac, char *av[])
 {
 	t_data	a;
 	t_data	b;
 	t_string txt;
-
+	int *comp;
+	int *comp1;
+	int i;
+	
+	i = 0;
 	a.structs = NULL;
 	b.structs = NULL;
 	if (ac >= 2)
@@ -125,6 +176,15 @@ int	main(int ac, char *av[])
 		free(txt.arr);
 		ft_check(&a);
 		ft_sort_a(&a,&b);
+		ft_index_tab(&b);
+		ft_index_tab(&a);
+		// if (b .size > 0)
+		// {
+		comp = malloc(sizeof(int) * b.size);
+		comp1 = malloc(sizeof(int) * a.size);
+		// 	printf(" ********%d ***** ",b.size);
+		ft_chechk_sort_b(&a,&b,comp);
+		// ft_chechk_sort_b(&a);
 		ft_print(&a);
 		ft_print(&b);
 	}
