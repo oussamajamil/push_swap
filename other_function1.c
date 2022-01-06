@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:51:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 16:17:13 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/06 17:29:17 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	ft_strcmp(char *s1, char *s2)
 
 	i = 0;
 	if (!s1)
-		return (-1);
+		return (-1);	
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);

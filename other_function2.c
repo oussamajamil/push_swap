@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 15:47:01 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/06 18:23:51 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	ft_check(t_data *a)
 {
 	int	cp;
 
-	cp = ft_sherch_maruphead_and_marque(a);
+	cp = ft_sherch_markuphead_and_marque(a);
 	sa(a);
 	if (cp < ft_markup_head(a))
 	{
 		ft_putstr_fd("sa\n", 1);
-		ft_sherch_maruphead_and_marque(a);
+		ft_sherch_markuphead_and_marque(a);
 	}
 	else
 		sa(a);

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 15:41:12 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/06 18:21:07 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct s_string
 	int long_str;
 	int *arr;
 }	t_string;
+
+typedef	struct s_comp_a
+{
+	t_table	*tba;
+	t_table	*tbb;
+	t_table	*last;
+	t_table	*first;
+}	t_comp_a;	
+
 
 void	ft_push_b(t_data *a, t_data *b);
 void	ft_push_a(t_data *a, t_data *b);
@@ -75,7 +84,7 @@ void	ft_short_function(int *d, t_table *markup_head);
 void	ft_free_str(char **str);
 void	ft_check(t_data *a);
 int		ft_nombre_push_b(t_data *b);
-int		ft_sherch_maruphead_and_marque(t_data *a);
+int		ft_sherch_markuphead_and_marque(t_data *a);
 void	ft_sort_a(t_data *a, t_data *b);
 int		ft_nombre_mots(char **str);
 #endif
