@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 10:16:34 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/06 18:27:21 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/07 14:32:39 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,29 +228,121 @@ void ft_check_tab_int(int *arr,int size,t_data *a)
 	}
 	
 }
+int	ft_table_final(int *comp1,int *comp,int *comp_final,int size)
+{
+	int i;
+	int j;
+	int cp;
+	
+	i = 0;
+	while (i < size)
+	{
+		if (comp1[i] < 0 && comp[i] < 0)
+			comp_final[i] = (comp1[i] * -1) + (comp[i] * -1);
+		else if (comp1[i] < 0 && comp[i] >= 0)
+			comp_final[i] = (comp1[i] * -1) + (comp[i]);
+		else if (comp1[i] >= 0 && comp[i] < 0)
+			comp_final[i] = (comp1[i]) + (comp[i] * -1);
+		else if (comp1[i] >= 0 && comp[i] >= 0)
+			comp_final[i] = comp1[i] + comp[i];
+		printf("%d ------***-- *%d---*****%d\n",comp_final[i],comp1[i],comp[i]);
+		i++;
+	}
+	i = -1;
+	cp = 0;
+	while (++i < size)
+	{
+		j = -1;
+		cp = 0;
+		while (++j < size)
+		{
+			if (comp_final[i] <= comp_final[j])
+			 	cp ++;
+		}
+		if (cp == size - 1)
+			break ;
+	}
+	return (i - 1);
+}
+
+void ft_push_b_to_a(t_data *a,t_data *b,int *comp1,int *comp)
+{
+	int result_comp;
+	int *comp_final;
+	int i;
+	t_intger data;
+	(void)a;
+	ft_chechk_sort_b(a,b,comp1);
+	ft_chechk_sort_a(a,b,comp);
+	ft_print(a);
+	ft_print(b);
+	comp_final = malloc(sizeof(int) * b->size);
+	result_comp = ft_table_final(comp1,comp,comp_final,b->size);
+	i = 0;
+	while (i < b->size)
+	{
+		printf("%d*****************%d************%d**************%d\n",comp_final[i],comp1[i],comp[i],result_comp);
+		i++;
+	}
+	
+	data.a1 = comp1[result_comp];
+	data.a2 = comp[result_comp];
+	// printf("%d ******---*****---*******--**%d\n",data.a1,data.a2);
+	while (data.a1 > 0 && data.a2>0)
+	{
+		rr(a,b);
+		ft_putstr_fd("rr\n",1);
+		data.a1 --;
+		data.a2--;
+	}
+	while (data.a1 < 0 && data.a2 < 0)
+	{
+		rrr(a,b);
+		ft_putstr_fd("rrr\n",1);
+		data.a1++;
+		data.a2++;
+	}
+	while (data.a1 == 0 && data.a2 < 0)
+	{
+		rra(a);
+		ft_putstr_fd("rra\n",1);
+		data.a2++;
+	}
+	while (data.a1 == 0 && data.a2 > 0)
+	{
+		ra(a);
+		ft_putstr_fd("ra\n",1);
+		data.a2--;
+	}
+	while (data.a1 < 0 && data.a2 == 0)
+	{
+		rrb(b);
+		ft_putstr_fd("rrb\n",1);
+		data.a1++;
+	}
+	while (data.a1 > 0 && data.a2 == 0)
+	{
+		rb(b);
+		ft_putstr_fd("rb\n",1);
+		data.a1--;
+	}
+	ft_push_b(a,b);
+	ft_putstr_fd("pb\n",1);
+	// // free(comp_final);
+}
 
 void	ft_push_a_b_final(t_data *a,t_data *b)
 {
 	int i;
 	int *comp1;
 	int *comp;
-	// int result_comp;
+	int *comp_final;
 
 	i = 0;
+	comp_final = NULL;
 	comp = malloc(sizeof(int) * b->size);
 	comp1 = malloc(sizeof(int) * b->size);
-	// while (i < b->size)
-	// {
-		ft_chechk_sort_b(a,b,comp1);
-		ft_chechk_sort_a(a,b,comp);
-		while (i < b->size)
-		{
-			printf("%d    ************     %d\n",comp[i],comp1[i]);
-			i++;
-		}
-		
-	// 	i++;
-	// }
+	ft_push_b_to_a(a,b,comp1,comp);
 	free(comp1);
 	free(comp);
 }
@@ -260,8 +352,6 @@ int	main(int ac, char *av[])
 	t_data	a;
 	t_data	b;
 	t_string txt;
-	// int *comp;
-	// int *comp1;
 	int i;
 	
 	i = 0;
@@ -290,9 +380,14 @@ int	main(int ac, char *av[])
 		ft_index_tab(&a);
 		if (b .size > 0)
 		{
-			ft_print(&b);
-			ft_push_a_b_final (&a,&b);
+			while (b.size > 0)
+			{
+				ft_push_a_b_final(&a,&b);
+				ft_index_tab(&b);
+				ft_index_tab(&a);
+			}
 		}
 		ft_print(&a);
+		ft_print(&b);
 	}
 }

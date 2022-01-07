@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/06 18:21:07 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/07 12:47:31 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,12 @@ typedef	struct s_comp_a
 	t_table	*last;
 	t_table	*first;
 }	t_comp_a;	
-
-
+typedef	struct s_intger
+{
+	int	a1;
+	int	a2;
+	int a3;
+}	t_intger;
 void	ft_push_b(t_data *a, t_data *b);
 void	ft_push_a(t_data *a, t_data *b);
 void	sa(t_data *a);
@@ -57,6 +61,8 @@ void	sb(t_data *a);
 void	ra(t_data *a);
 void	rb(t_data *a);
 void	rra(t_data *a);
+void	rrb(t_data *a);
+void	rrr(t_data *a, t_data *b);
 t_table	*insertdata(int x,int index,int pos);
 t_table	*ft_add_head(t_data *table, int x, int index, int pos);
 t_table	*ft_add_back(t_data *table, int x, int index, int pos);
@@ -87,4 +93,5 @@ int		ft_nombre_push_b(t_data *b);
 int		ft_sherch_markuphead_and_marque(t_data *a);
 void	ft_sort_a(t_data *a, t_data *b);
 int		ft_nombre_mots(char **str);
+void	ft_push_b_to_a(t_data *a,t_data *b,int *comp1,int *comp);
 #endif

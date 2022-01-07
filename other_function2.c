@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/06 18:23:51 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/07 12:57:15 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_sort_a(t_data *a, t_data *b)
 	{
 		if (a->structs->pos == 0)
 		{
-			ft_push_b(a, b);
+			ft_push_a(a, b);
 			i++;
 		}
 		else

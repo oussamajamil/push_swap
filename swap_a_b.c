@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:41:47 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 11:13:22 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/07 12:39:46 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,10 @@ void	rr(t_data *a, t_data *b)
 {
 	ra (a);
 	rb (b);
+}
+
+void rrr(t_data *a, t_data *b)
+{
+	rra(a);
+	rrb(b);
 }

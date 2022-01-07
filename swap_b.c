@@ -6,11 +6,22 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 17:08:58 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/04 14:23:52 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/07 12:56:10 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	rrb(t_data *a)
+{
+	int	x;
+
+	if (a->structs == NULL)
+		return ;
+	x = a->last->key;
+	ft_add_head(a, x,a->last->index, a->last->pos);
+	ft_delete_back_node(a);
+}
 
 void	rb(t_data *a)
 {
@@ -57,11 +68,11 @@ void	ft_push_b(t_data *a, t_data *b)
 {
 	int	x;
 
-	if (a->structs)
+	if (b->structs)
 	{
-		x = a->structs->key;
-		ft_add_head(b, x,a->structs->index,a->structs->pos);
-		ft_delete_first_node(a);
+		x = b->structs->key;
+		ft_add_head(a, x,b->structs->index,b->structs->pos);
+		ft_delete_first_node(b);
 	}
 	else
 		return ;
