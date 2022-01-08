@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:45:53 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/06 17:33:23 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/08 17:08:49 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	ft_free_str(char **str)
 		free(str[i]);
 		i++;
 	}
-	free(str);
 }
 
 void	ft_check_double(char **s)
@@ -93,7 +92,7 @@ void	ft_check_double(char **s)
 	while (s[i])
 	{
 		j = i + 1;
-		if (s[j] == '\0')
+		if (!s[j])
 			break ;
 		while (s[j])
 		{

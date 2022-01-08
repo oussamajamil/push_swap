@@ -9,7 +9,7 @@ EXCUTE = main.c
 
 EXCUTE = push_swap.c
 
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
 
 INCLUDE = push_swap.h
 
@@ -26,13 +26,12 @@ SRC = 	swap_a.c\
 
 OBJECTS = $(SRC:.c=.o)
 
-
-all :$(NAME)
-
 $(NAME) : $(OBJECTS) $(INCLUDE)
 	@make clean -C libft
 	@make -C libft
 	@$(CC) $(CFLAGS) $(EXCUTE) $(OBJECTS) $(LIBFT_BIB) -o $@
+
+all :$(NAME)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -o $@ -c $<

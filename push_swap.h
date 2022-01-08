@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/07 12:47:31 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/08 15:47:23 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ typedef	struct s_comp_a
 }	t_comp_a;	
 typedef	struct s_intger
 {
-	int	a1;
-	int	a2;
+	int	a;
+	int	b;
 	int a3;
 }	t_intger;
-void	ft_push_b(t_data *a, t_data *b);
-void	ft_push_a(t_data *a, t_data *b);
+void	pb(t_data *a, t_data *b);
+void	pa(t_data *a, t_data *b);
 void	sa(t_data *a);
 void	sb(t_data *a);
 void	ra(t_data *a);
@@ -93,5 +93,5 @@ int		ft_nombre_push_b(t_data *b);
 int		ft_sherch_markuphead_and_marque(t_data *a);
 void	ft_sort_a(t_data *a, t_data *b);
 int		ft_nombre_mots(char **str);
-void	ft_push_b_to_a(t_data *a,t_data *b,int *comp1,int *comp);
+void	ft_push_b_to_a(t_data *a,t_data *b);
 #endif

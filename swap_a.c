@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 17:08:42 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/07 12:39:31 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/08 18:00:22 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ void	sa(t_data *a)
 	}
 }
 
-void	ft_push_a(t_data *a, t_data *b)
+void	pa(t_data *a, t_data *b)
 {
 	int	x;
 
-	if (a->structs)
+	if (b->structs)
 	{
-		x = a->structs->key;
-		ft_add_head(b, x,a->structs->index,a->structs->pos);
-		ft_delete_first_node(a);
+		x = b->structs->key;
+		ft_add_head(a, x,b->structs->index,b->structs->pos);
+		ft_delete_first_node(b);
 	}
 	else
 		return ;
