@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:51:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/08 14:22:11 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/10 12:19:01 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	ft_print(t_data *data)
 		return ;
 	while (tmp)
 	{
-		printf("%d \t %d \t  %d\t %d\n", tmp->key,tmp->pos,tmp->index,tmp->index_in_your_table);
+		printf("%d \t %d \t  %d\t %d\n", tmp->key, tmp->pos, tmp->index,
+			tmp->index_in_your_table);
 		tmp = tmp->next;
 	}
 	ft_putstr_fd("---------------------------------\n", 1);
@@ -84,6 +85,7 @@ void	ft_delete_first_node(t_data *data)
 			dt->next->prev = NULL;
 		data->structs = dt->next;
 		data->size--;
+		free(dt);
 	}
 }
 
@@ -93,7 +95,7 @@ int	ft_strcmp(char *s1, char *s2)
 
 	i = 0;
 	if (!s1)
-		return (-1);	
+		return (-1);
 	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);

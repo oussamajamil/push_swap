@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/08 15:47:23 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/10 13:04:24 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,27 @@ typedef struct s_data
 
 typedef struct s_string
 {
-	char *str;
-	char **s;
-	int long_str;
-	int *arr;
+	char	*str;
+	char	**s;
+	int		long_str;
+	int		*arr;
 }	t_string;
 
-typedef	struct s_comp_a
+typedef struct s_comp_a
 {
 	t_table	*tba;
 	t_table	*tbb;
 	t_table	*last;
 	t_table	*first;
-}	t_comp_a;	
-typedef	struct s_intger
+}	t_comp_a;
+
+typedef struct s_intger
 {
 	int	a;
 	int	b;
-	int a3;
+	int	a3;
 }	t_intger;
+
 void	pb(t_data *a, t_data *b);
 void	pa(t_data *a, t_data *b);
 void	sa(t_data *a);
@@ -63,7 +65,7 @@ void	rb(t_data *a);
 void	rra(t_data *a);
 void	rrb(t_data *a);
 void	rrr(t_data *a, t_data *b);
-t_table	*insertdata(int x,int index,int pos);
+t_table	*insertdata(int x, int index, int pos);
 t_table	*ft_add_head(t_data *table, int x, int index, int pos);
 t_table	*ft_add_back(t_data *table, int x, int index, int pos);
 void	ss(t_data *a, t_data *b);
@@ -93,5 +95,10 @@ int		ft_nombre_push_b(t_data *b);
 int		ft_sherch_markuphead_and_marque(t_data *a);
 void	ft_sort_a(t_data *a, t_data *b);
 int		ft_nombre_mots(char **str);
-void	ft_push_b_to_a(t_data *a,t_data *b);
+void	ft_push_b_to_a(t_data *a, t_data *b);
+void	ft_chechk_sort_b(t_data *a, t_data *b, int *arr);
+void	ft_index_tab(t_data *b);
+void	ft_check_tab_int(int *arr, int size, t_data *a);
+void	ft_organize_list(t_data *a , int pos);
+void	ft_sort_final (t_data a,t_data b);
 #endif

@@ -21,7 +21,8 @@ SRC = 	swap_a.c\
 		other_function4.c\
 		other_function5.c\
 		ft_strj.c\
-		swap_a_b.c
+		swap_a_b.c\
+		test.c
 
 
 OBJECTS = $(SRC:.c=.o)
@@ -33,7 +34,7 @@ $(NAME) : $(OBJECTS) $(INCLUDE)
 
 all :$(NAME)
 
-%.o : %.c
+%.o : %.c *.h
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean :

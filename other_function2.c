@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/08 18:03:40 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/10 11:42:18 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_delete_back_node(t_data *data)
 	data->last = lst->prev;
 	lst->prev->next = NULL;
 	data->size--;
+	free(lst);
 }
 
 t_table	*insertdata(int x, int index, int pos)
@@ -83,7 +84,7 @@ void	ft_sort_a(t_data *a, t_data *b)
 		if (a->structs->pos == 0)
 		{
 			pb(a, b);
-			ft_putstr_fd("pb\n",1);
+			ft_putstr_fd("pb\n", 1);
 			i++;
 		}
 		else

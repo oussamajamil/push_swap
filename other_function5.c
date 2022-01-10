@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:05:26 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/05 10:19:37 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/10 11:01:26 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,12 @@ t_table	*ft_select_markup_head(t_table *data, int y)
 	return (data);
 }
 
-int ft_nombre_mots(char **str)
+int	ft_nombre_mots(char **str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
-	{
-		i++;;
-	}
+		i++;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 10:44:54 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/08 17:14:08 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/10 09:29:05 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ void	ft_create_strjoin(int size, char **strs, char *sep, char *p)
 
 char	*ft_strj(int size, char **strs, char *sep)
 {
+	int		i;
 	int		a;
 	char	*p;
-	int		i;
 
 	i = -1;
 	a = 0;
