@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 13:05:30 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/10 14:54:29 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/11 11:23:37 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,14 @@ void	ft_sort_final(t_data a, t_data b)
 	ft_sort_a(&a, &b);
 	ft_index_tab(&a);
 	ft_index_tab(&b);
-	if (b.size > 0)
+	while (b.size > 0)
 	{
-		while (b.size > 0)
-		{
-			ft_push_b_to_a(&a, &b);
-			ft_index_tab(&b);
-			ft_index_tab(&a);
-		}
+		ft_push_b_to_a(&a, &b);
+		ft_index_tab(&b);
+		ft_index_tab(&a);
 	}
 	pos = ft_sherche_pos0(&a);
 	ft_organize_list(&a, pos);
-	ft_print(&a);
 }
 
 int	ft_nombre_push_b(t_data *b)

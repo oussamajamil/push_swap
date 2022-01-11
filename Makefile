@@ -9,7 +9,7 @@ EXCUTE = main.c
 
 EXCUTE = push_swap.c
 
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDE = push_swap.h
 
@@ -22,7 +22,10 @@ SRC = 	swap_a.c\
 		other_function5.c\
 		ft_strj.c\
 		swap_a_b.c\
-		test.c
+		test.c\
+		ft_norm_function1.c\
+		ft_norm_function2.c\
+		ft_norm_function3.c 
 
 
 OBJECTS = $(SRC:.c=.o)
