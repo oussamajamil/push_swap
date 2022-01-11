@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:52:08 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/10 11:42:18 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/11 18:19:33 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ void	ft_sort_a(t_data *a, t_data *b)
 		}
 		else
 		{
-			rra(a);
-			ft_putstr_fd("rra\n", 1);
+			rr(a, b);
+			ft_putstr_fd("rr\n", 1);
 			ft_check(a);
 			i = 0;
 			cp = ft_nombre_push_b(a);
