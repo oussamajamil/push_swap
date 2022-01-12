@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 17:34:17 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/03 11:37:32 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/12 11:35:51 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 long long	ft_atoi(const char *str);
 t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
-void		ft_lstadd_front(t_list **lst, t_list *new);
 t_list		*ft_lstlast(t_list *lst);
-void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));

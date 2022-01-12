@@ -1,4 +1,5 @@
 NAME = push_swap
+NAME_BONUS = checker_bonus
 
 INCLUDE = so_long.h
 LIBFT_BIB = ./libft/libft.a
@@ -6,6 +7,8 @@ LIBFT_BIB = ./libft/libft.a
 CC = gcc
 
 EXCUTE = main.c
+
+EXCUTE_BONUS = ./bonus/checker.c
 
 EXCUTE = push_swap.c
 
@@ -25,7 +28,8 @@ SRC = 	swap_a.c\
 		test.c\
 		ft_norm_function1.c\
 		ft_norm_function2.c\
-		ft_norm_function3.c 
+		ft_norm_function3.c\
+		ft_short_push_swap.c \
 
 
 OBJECTS = $(SRC:.c=.o)
@@ -37,8 +41,15 @@ $(NAME) : $(OBJECTS) $(INCLUDE)
 
 all :$(NAME)
 
+$(NAME_BONUS) : $(OBJECTS) $(INCLUDE)
+	@make  clean -C libft
+	@make  -C libft
+	@$(CC) $(CFLAGS) $(EXCUTE_BONUS) $(OBJECTS) $(LIBFT_BIB) -o ./bonus/$@
+
+bonus :$(NAME_BONUS)
 %.o : %.c *.h
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	@echo  "\033[0;40m compiler...."
 
 clean :
 	@make clean -C libft
@@ -48,5 +59,6 @@ clean :
 fclean: clean
 	@make fclean -C libft
 	@rm -rf $(NAME) 
+	@rm -rf ./bonus/$(NAME_BONUS)
 
 re : fclean all

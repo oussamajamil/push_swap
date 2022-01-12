@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 10:16:34 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/12 12:02:17 by ojamil           ###   ########.fr       */
+/*   Created: 2022/01/12 10:47:40 by ojamil            #+#    #+#             */
+/*   Updated: 2022/01/12 12:20:12 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char *av[])
+int main (int ac, char *av[])
 {
 	t_data		a;
 	t_data		b;
@@ -24,7 +24,10 @@ int	main(int ac, char *av[])
 	{
 		txt.str = ft_strj(ac, av, " ");
 		if (txt.str == NULL)
+		{
+			ft_putstr_fd("error",1);
 			exit(0);
+		}
 		txt.s = ft_split(txt.str, ' ');
 		free(txt.str);
 		ft_check_nember(txt.s);
@@ -35,8 +38,9 @@ int	main(int ac, char *av[])
 		ft_free_str(txt.s);
 		ft_check_tab_int(txt.arr, a.size, &a);
 		ft_sort_int_tab(txt.arr, txt.long_str - 1);
-		ft_remplir_index(&a, txt.arr, txt.long_str - 1);
-		free(txt.arr);
-		ft_sort_final(a, b);
+		while (1)
+		{
+			
+		}
 	}
 }
