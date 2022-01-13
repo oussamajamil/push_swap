@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 11:10:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/12 11:40:39 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/13 15:18:50 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,8 @@ void	ft_short_b_to_a2(t_intger *data, t_data *a, t_data *b);
 void	ft_boucle_instriction1(t_intger *data, t_data *a, t_data *b);
 void	ft_norm_check_sort_a1(t_comp_a *data, t_data *a, t_data *b, int *i);
 void	ft_norm_check_sort_a2(t_comp_a *data, int *i);
+int		ft_strlens(char *s);
+char	*ft_strjoins(char *s1, char *s2);
+char	*get_lines(int fd);
+char	*get_next_lines(int fd);
 #endif

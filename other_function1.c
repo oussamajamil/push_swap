@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 12:51:45 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/10 12:19:01 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/13 14:08:09 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ t_table	*ft_add_back(t_data *table, int x, int index, int pos)
 void	ft_print(t_data *data)
 {
 	t_table	*tmp;
+	int		i;
 
 	tmp = data->structs;
-	if (data->structs == NULL)
-		return ;
+	i = 0;
 	while (tmp)
 	{
-		printf("%d \t %d \t  %d\t %d\n", tmp->key, tmp->pos, tmp->index,
-			tmp->index_in_your_table);
+		ft_putnbr_fd(tmp->key, 1);
+		ft_putchar_fd('\n', 1);
 		tmp = tmp->next;
 	}
 	ft_putstr_fd("---------------------------------\n", 1);

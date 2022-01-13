@@ -30,7 +30,7 @@ SRC = 	swap_a.c\
 		ft_norm_function2.c\
 		ft_norm_function3.c\
 		ft_short_push_swap.c \
-
+		./bonus/get_next_line.c
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -47,6 +47,7 @@ $(NAME_BONUS) : $(OBJECTS) $(INCLUDE)
 	@$(CC) $(CFLAGS) $(EXCUTE_BONUS) $(OBJECTS) $(LIBFT_BIB) -o ./bonus/$@
 
 bonus :$(NAME_BONUS)
+
 %.o : %.c *.h
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	@echo  "\033[0;40m compiler...."
@@ -54,7 +55,6 @@ bonus :$(NAME_BONUS)
 clean :
 	@make clean -C libft
 	@rm -rf $(OBJECTS)
-
 
 fclean: clean
 	@make fclean -C libft

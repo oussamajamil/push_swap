@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 16:20:20 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/11 17:52:18 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/13 12:51:38 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ void	ft_boucle_instriction1(t_intger *data, t_data *a, t_data *b)
 	while (data->a > 0 && data->b < 0)
 	{
 		ra(a);
-		rrb(b);
 		ft_putstr_fd("ra\n", 1);
+		rrb(b);
 		ft_putstr_fd("rrb\n", 1);
 		data->a --;
 		data->b++;
@@ -120,8 +120,8 @@ void	ft_boucle_instriction1(t_intger *data, t_data *a, t_data *b)
 	while (data->a < 0 && data->b > 0)
 	{
 		rra(a);
-		rb(b);
 		ft_putstr_fd("rra\n", 1);
+		rb(b);
 		ft_putstr_fd("rb\n", 1);
 		data->a++;
 		data->b--;
