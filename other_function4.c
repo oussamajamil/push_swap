@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:35:09 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/13 18:37:45 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/14 13:17:35 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	ft_free_list(t_data *dt)
 	t_table	*tmp;
 	t_table	*lst;
 
-	lst = dt ->structs;
-	if (lst == NULL)
+	if (!dt)
 		return ;
+	lst = dt ->structs;
 	while (lst != NULL)
 	{
 		tmp = lst;
@@ -43,7 +43,7 @@ void	ft_remplire_list(t_data *a, char **str, int *arr)
 		{
 			ft_free_list(a);
 			free(arr);
-			ft_putstr_fd("error", 1);
+			ft_putstr_fd("Error", 1);
 			exit(0);
 		}
 		ft_add_back(a, n, -1, -1);

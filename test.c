@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 13:05:30 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/13 18:23:41 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/14 12:17:45 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_check_tab_int(int *arr, int size, t_data *a)
 			if (arr[i] == arr[j])
 			{
 				free(arr);
-				ft_putstr_fd("error doubles", 1);
+				ft_putstr_fd("Error", 1);
 				ft_free_list(a);
 				exit(0);
 			}
@@ -92,9 +92,7 @@ void	ft_sort_final(t_data a, t_data b)
 	}
 	pos = ft_sherche_pos0(&a);
 	ft_organize_list(&a, pos);
-	ft_print(&a);
 	ft_free_list(&a);
-	ft_free_list(&b);
 }
 
 int	ft_nombre_push_b(t_data *b)

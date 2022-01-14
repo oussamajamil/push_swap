@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 09:48:42 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/13 18:42:20 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/14 13:37:59 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,23 @@ char	*ft_strjoins(char *s1, char *s2)
 	return (result);
 }
 
+char	*ft_short_get_lines(char *buffer, char *line, int i)
+{
+	if (i == 1)
+	{
+		free(buffer);
+		return (line);
+	}
+	if (i == 2)
+	{
+		if (buffer)
+			free(buffer);
+		free(line);
+		return (NULL);
+	}
+	return (line);
+}
+
 char	*get_lines(int fd)
 {
 	char	*line;
@@ -62,28 +79,18 @@ char	*get_lines(int fd)
 	{
 		a = read(fd, buffer, 1);
 		if (a == -1)
-		{
-			if (buffer)
-				free(buffer);
-			free(line);
-			return (NULL);
-		}
+			return (ft_short_get_lines(buffer, line, 2));
 		if (a == 0)
-		{
-			free(buffer);
-			return (line);
-		}
+			return (ft_short_get_lines(buffer, line, 1));
 		buffer[1] = 0;
 		if (buffer[0] == '\n')
 		{
 			line = ft_strjoins(line, buffer);
-			free(buffer);
-			return (line);
+			return (ft_short_get_lines(buffer, line, 1));
 		}
 		line = ft_strjoins(line, buffer);
 	}
-	free(buffer);
-	return (line);
+	return (ft_short_get_lines(buffer, line, 1));
 }
 
 char	*get_next_lines(int fd)

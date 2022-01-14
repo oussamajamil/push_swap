@@ -6,11 +6,17 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 10:47:40 by ojamil            #+#    #+#             */
-/*   Updated: 2022/01/13 19:04:14 by ojamil           ###   ########.fr       */
+/*   Updated: 2022/01/14 13:55:20 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_norm(void)
+{
+	ft_putstr_fd("Error", 1);
+	exit(0);
+}
 
 void	ft_execut_function(char *line, t_data *a, t_data *b)
 {
@@ -36,6 +42,8 @@ void	ft_execut_function(char *line, t_data *a, t_data *b)
 		rr(a, b);
 	else if (ft_strcmp(line, "rrr\n") == 0)
 		rrr(a, b);
+	else
+		ft_norm();
 }
 
 int	ft_check_sort_table(t_data *a)
@@ -58,7 +66,8 @@ int	ft_check_sort_table(t_data *a)
 	}
 	return (0);
 }
-void ft_checker(t_data *a, t_data *b)
+
+void	ft_checker(t_data *a, t_data *b)
 {
 	char	*line;
 
@@ -76,8 +85,7 @@ void ft_checker(t_data *a, t_data *b)
 		else
 			ft_putstr_fd("\033[0;31mKO\n", 1);
 		ft_free_list(a);
-		ft_free_list(b);
-		exit(0);	
+		exit(0);
 	}
 }
 
@@ -93,10 +101,7 @@ int	main(int ac, char *av[])
 	{
 		txt.str = ft_strj(ac, av, " ");
 		if (txt.str == NULL)
-		{
-			ft_putstr_fd("error", 1);
 			exit(0);
-		}
 		txt.s = ft_split(txt.str, ' ');
 		free(txt.str);
 		ft_check_nember(txt.s);
@@ -107,8 +112,6 @@ int	main(int ac, char *av[])
 		ft_free_str(txt.s);
 		ft_check_tab_int(txt.arr, a.size, &a);
 		ft_sort_int_tab(txt.arr, txt.long_str - 1);
-		if (ft_check_sort_table(&a) == 0)
-			exit(0);
-		ft_checker(&a,&b);
+		ft_checker(&a, &b);
 	}
 }

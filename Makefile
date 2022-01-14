@@ -1,7 +1,6 @@
 NAME = push_swap
-NAME_BONUS = checker_bonus
+NAME_BONUS = checker
 
-INCLUDE = so_long.h
 LIBFT_BIB = ./libft/libft.a
 
 CC = gcc
@@ -44,7 +43,7 @@ all :$(NAME)
 $(NAME_BONUS) : $(OBJECTS) $(INCLUDE)
 	@make  clean -C libft
 	@make  -C libft
-	@$(CC) $(CFLAGS) $(EXCUTE_BONUS) $(OBJECTS) $(LIBFT_BIB) -o ./bonus/$@
+	@$(CC) $(CFLAGS) $(EXCUTE_BONUS) $(OBJECTS) $(LIBFT_BIB) -o ./$@
 
 bonus :$(NAME_BONUS)
 
@@ -59,6 +58,6 @@ clean :
 fclean: clean
 	@make fclean -C libft
 	@rm -rf $(NAME) 
-	@rm -rf ./bonus/$(NAME_BONUS)
+	@rm -rf ./$(NAME_BONUS)
 
 re : fclean all
